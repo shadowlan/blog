@@ -18,7 +18,7 @@ $echo ${array[*]}
 a b c
 $echo ${array[@]}
 a b c
-
+```
 * 其他操作
 
     * 某个元素的字符串长度：${#array[n]}
