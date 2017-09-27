@@ -6,6 +6,7 @@ y="this is a test"; echo "${y^^}"
 y="THIS IS A TEST"; echo "${y,,}"
 ```
 * 分割字符串
+
 shell特殊变量$IFS（internal field separator），默认分割符为空格<space>／制表符<tab>／换行符<newline>
 打印IFS: cat -etv <<< "$IFS"
 ```bash
@@ -28,7 +29,9 @@ done
 content=`cat $file`
 content=$(<$file)
 ```
+
 * 字符串操作
+
 | 表达式  | 含义  |
 |---------|-------|
 |${#string} |$string的长度|
@@ -42,6 +45,7 @@ content=$(<$file)
 |${string//substring/replacement}|使用$replacement来代替所有匹配的$substring|
 |${string/#substring/replacement}|如果$string的前缀匹配$substring,那么就用$replacement来代替匹配到的$substring   |
 |${string/%substring/replacement}|如果$string的后缀匹配$substring,那么就用$replacement来代替匹配到的$substring   |
+
 说明: "$substring"可以是一个正则表达式
 使用实例：
 1. 字符串删除
@@ -61,6 +65,7 @@ $echo ${test//\//\\}
 \var\log\boot.log
 ```
 * 参数替换
+
 | 表达式 |含义|
 |--------|----|
 | ${var}|变量var的值，于$var相同   |
