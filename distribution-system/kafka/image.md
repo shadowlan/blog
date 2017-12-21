@@ -16,4 +16,9 @@
 
 4. 
 ![1-horizontal-scale](../../images/distribution-system/kafka/1-horizontal-scale.png)
-水平扩展在某个阈值后变得更便宜
+_水平扩展在某个阈值后变得更便宜_
+5
+![6-broker-3-replica](../../images/distribution-system/kafka/6-broker-3-replica.png =250x250)
+
+6
+![6-broker-3-replica](../../images/distribution-system/kafka/6-broker-3-replica.png)
