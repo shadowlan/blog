@@ -21,4 +21,4 @@ _水平扩展在某个阈值后变得更便宜_
 ![6-broker-3-replica](../../images/distribution-system/kafka/6-broker-3-replica.png =250x250)
 
 6
-![6-broker-3-replica](../../images/distribution-system/kafka/6-broker-3-replica.png)
+![6-broker-3-replica](../../images/distribution-system/kafka/6-broker-3-replica.png) <!-- .element style="height: 50% width: 50%" -->
