@@ -1,6 +1,7 @@
 # Apache Kafka详细介绍
 
 本文翻译自[Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1)
+
 有些技术词汇在中文并没有合适的翻译，为了避免歧义，在一些中文词汇后用[original words]提供英文原词帮助理解。
 
 ## 介绍
@@ -60,7 +61,7 @@ Kafka实际上存储所有的消息到磁盘（稍后详述），并且有序地
 
 应用（生产者[**producers**]）发送消息（记录[**records**]）给Kafka节点（代理[**broker**]），并且上述消息被其他称之为消费者[**consumers**]的应用所处理。上述消息被存储在一个主题（**topic**）中，而消费者通过订阅主题来接收新消息。
 
-![3-producer-consumer](../../images/distribution-system/kafka/3-producer-consumer)
+![3-producer-consumer](../../images/distribution-system/kafka/3-producer-consumer.png)
 
 因为主题会变得相当大，他们会被拆分到多个更小尺寸的分区[**partitions**]中以得到更好的性能和扩展性。（例如：假设你要存储用户登陆请求，你可以按照用户名称的第一个字母来拆分他们）
 
@@ -242,8 +243,8 @@ Kafka在全世界范围内已经被上千公司大量采用，涵盖三分之一
 
 ## 资源
 
-[Confluent Blog](https://www.confluent.io/blog/) - 很多Apache Kafka相关的信息
-[Kafka Documentation](https://kafka.apache.org/documentation/) - 大量高质量文档
-[Kafka Summit 2017 videos](https://www.confluent.io/kafka-summit-sf17/resource/)
+* [Confluent Blog](https://www.confluent.io/blog/) - 很多Apache Kafka相关的信息
+* [Kafka Documentation](https://kafka.apache.org/documentation/) - 大量高质量文档
+* [Kafka Summit 2017 videos](https://www.confluent.io/kafka-summit-sf17/resource/)
  
 感谢你花时间阅读这篇文章！
