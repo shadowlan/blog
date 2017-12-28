@@ -5,8 +5,8 @@
 
 ## 安装Go环境
 Max OS安装Go工具集只需要下载pkg包然后双击执行即可  
-[go1.9.2.darwin-amd64](https://golang.org/doc/install?download=go1.9.2.darwin-amd64.pkg)
-其他版本下载地址[Download](https://golang.org/dl/)
+[go1.9.2.darwin-amd64](https://golang.org/doc/install?download=go1.9.2.darwin-amd64.pkg)  
+其他版本下载地址:[Download](https://golang.org/dl/)
 
 ## Go指南
 Go官方中文指南可以直接访问[Go指南](https://tour.go-zh.org/welcome/1)  
@@ -23,6 +23,7 @@ cd $GOPATH/bin
 
 ## Go常用环境变量
 * $GOROOT
+
   GOROOT是go的安装路径,MacOS和Linux上默认的安装路径为"/usr/local/go". 用户可以在~/.bash_profile中添加如下内容，为系统指定默认的GOROOT后执行`source ~/.bash_profile`.
   ```
   GOROOT=/usr/local/go
@@ -31,6 +32,7 @@ cd $GOPATH/bin
   ```
 
 * $GOPATH
+
   GOPATH是作为编译后二进制的存放目的地和import包时的搜索路径,一般指向你的Worksapce工作目录,如果GOPATH没有设置，Unix系统默认会是$HOME/go,windows系统默认是%USERPROFILE%\go. 通过运行`go help gopath`可以获得更多细节。 
   go install/go get和go的工具等会用到GOPATH环境变量.  
   可以在~/.bash_profile中添加如下语句后执行`source ~/.bash_profile`
@@ -39,16 +41,18 @@ cd $GOPATH/bin
   ```
 
 * $GOBIN
+
   执行`go install`的时候，安装命令的目标目录。编译后的执行文件会移到GOBIN定义的目录。注意GOBIN必须是绝对路径。 
 
 * 其他
+
   其他常用变量可以通过`go env`获得变量列表和值,也可参考官方文档介绍的[环境变量](https://golang.org/cmd/go/#hdr-Environment_variables)
 
 ## 常用Go命令
 * `go build [-o output] [-i] [build flags] [packages]`  
 编译包和依赖，但是不安装编译结果。
 
-* `go install [build flags] [packages]`
+* `go install [build flags] [packages]`  
 安装编译的包和依赖，具体可参考`go help install`
 
 * 更多命令参考[官方文档](https://golang.org/cmd/go/)
