@@ -20,7 +20,7 @@ OmniMarkupPreviewer用来预览markdown 编辑的效果，同样支持渲染代�
 * Command+Option+X 导出HTML
 * Ctrl+Alt+C HTML标记拷贝至剪贴板
 
-# MaxOS上命令行打开markdown文件
+# MacOS上命令行打开markdown文件
 需要配置sublime应用的软连接，具体操作如下：
 ```
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
