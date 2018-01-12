@@ -1,6 +1,7 @@
 # Nexus API信息
-Nexus提供两种API，一种是Rest API，另一种是Integration API(scripting API) 官方介绍在[这里](https://help.sonatype.com/display/NXRM3/REST+and+Integration+API)  
-[Nexus API 示例](https://github.com/sonatype/nexus-book-examples/tree/nexus-3.x/scripting)
+Nexus提供两种API，一种是Rest API，另一种是Integration API(scripting API)，官方介绍在[这里](https://help.sonatype.com/display/NXRM3/REST+and+Integration+API)  
+[Nexus API 示例代码库](https://github.com/sonatype/nexus-book-examples/tree/nexus-3.x/scripting)  
+[官方core API文档][nexus-core-api]
 
 # 使用Scripting API的前提
 
@@ -55,3 +56,4 @@ groovy -Dgroovy.grape.report.downloads=true -Dgrape.config=grapeConfig.xml addUp
 ```bash
 curl --insecure -v -X POST -u admin:admin123 --header "Content-Type: text/plain" "https://$hostname/service/siesta/rest/v1/script/grantuser/run" --data-binary "@user.json"
 ```
+[nexus-core-api]: https://repository.sonatype.org/nexus-restlet1x-plugin/default/docs/index.html
