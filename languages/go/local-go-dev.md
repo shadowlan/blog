@@ -1,11 +1,9 @@
 # 介绍
 
-本文主要介绍在Mac OS系统上如何安装和使用Go的基础内容  
-其他系统安装可以参考[官方文档](https://go-zh.org/doc/install)  
+本文主要介绍在Mac OS系统上如何安装和使用Go的基础内容，其他系统安装可以参考[官方文档](https://go-zh.org/doc/install)  
 
 ## 安装Go环境
-Max OS安装Go工具集只需要下载pkg包然后双击执行即可  
-[go1.9.2.darwin-amd64](https://golang.org/doc/install?download=go1.9.2.darwin-amd64.pkg)  
+Max OS安装Go工具集只需要下载pkg包然后双击执行即可：[go1.9.2.darwin-amd64](https://golang.org/doc/install?download=go1.9.2.darwin-amd64.pkg)  
 其他版本下载地址:[Download](https://golang.org/dl/)
 
 ## Go指南
@@ -67,6 +65,84 @@ cd $GOPATH/bin
 * 简单使用
   * 快捷键Shift+Command+B调出选择面板，选择需要执行的命令例如"Go - Run"/"Go - Install"等
 
-## 学习资源
-[Go入门指南](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
+## vim配置Go开发环境插件
+Vim-go是当前使用最为广泛的用于搭建Golang开发环境的vim插件，推荐在vim7.4及以上版本安装。  
+vim的配置参考了[Golang开发环境搭建-Vim篇][vim-golang-env]以及[golang和vim-go安装配置][vim-golang]
 
+### 升级vim 
+
+如果MacOS里vim版本过低的话需要升级vim  
+```
+brew install vim --with-lua --with-override-system-vi
+```
+
+### 安装Vundle插件管理器
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+参考官方的https://github.com/VundleVim/Vundle.vim，配置.vimrc,添加如下内容到~/.vimrc文件：
+```
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+```
+
+### 安装vim-go
+
+编辑~/.vimrc，在vundle#begin和vundle#end间增加一行:   
+`Plugin 'fatih/vim-go'`
+在Vim内执行: PluginInstall
+Vundle.vim会在左侧打开一个Vundle Installer Preview子窗口，窗口下方会提示：“Processing 'fatih/vim-go'”，待安装完毕后，提示信息变 成“Done!”
+正常安装后应该就能让go文件语法高亮，并且保存时会自动调整格式(利用`go fmt`). 但是在我本地遇到了问题，打开go文件没有语法高亮，google后发现需要在.vimrc添加额外配置,issue请参考[这里][issue-316]：
+```
+let g:go_highlight_structs = 1 
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+```
+
+因此最终的.vimrc里新添加的配置如下：
+```
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'fatih/vim-go'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+```
+
+### 安装go.tools Binaries
+
+vim-go安装说明中提到所有必要的binary需要先安装好，比如gocode、godef、goimports等。
+通过:GoInstallBinaries，这些vim-go依赖的二进制工具将会自动被下载，并被安装到$GOBIN下或$GOPATH/bin下。（这个工具需要依赖git或hg，需要提前安装到你的OS中。）
+
+## Go语言学习资源
+* [Go入门指南](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
+* [Go语言入门][go-toturial]
+
+[vim-golang-env]: http://tonybai.com/2014/11/07/golang-development-environment-for-vim/
+[vim-golang]: http://www.cnblogs.com/yuuyuu/p/5222980.html
+[issue-316]: https://github.com/fatih/vim-go/issues/316
+[go-toturial]: https://zengweigang.gitbooks.io/core-go/content/eBook/preface.html
