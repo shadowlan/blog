@@ -140,9 +140,9 @@ vim-go安装说明中提到所有必要的binary需要先安装好，比如gocod
 
 ## Go语言学习资源
 * [Go入门指南](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
-* [Go语言入门][go-toturial]
+
 
 [vim-golang-env]: http://tonybai.com/2014/11/07/golang-development-environment-for-vim/
 [vim-golang]: http://www.cnblogs.com/yuuyuu/p/5222980.html
 [issue-316]: https://github.com/fatih/vim-go/issues/316
-[go-toturial]: https://zengweigang.gitbooks.io/core-go/content/eBook/preface.html
+
