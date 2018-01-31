@@ -70,8 +70,9 @@ helm serve --repo-path repo
 helm repo add bitnami-incubator https://charts.bitnami.com/incubator
 ```
 
-## 参考文档和链接
+## 参考链接
 * [Helm简介][cn-guide]
+* [Helm快速入门][quick-start-cn]
 * [Getting Started Authoring Helm Charts][athoring-charts]
 
 [helm-v2.8.0]: https://kubernetes-helm.storage.googleapis.com/helm-v2.8.0-linux-amd64.tar.gz
@@ -80,3 +81,4 @@ helm repo add bitnami-incubator https://charts.bitnami.com/incubator
 [cn-guide]: http://blog.fleeto.us/content/helm-jian-jie
 [athoring-charts]: https://deis.com/blog/2016/getting-started-authoring-helm-charts/
 [issue-521]: https://github.com/kubernetes/kubeadm/issues/521
+[quick-start-cn]: https://ezmo.me/2017/09/24/helm-quick-toturial/
