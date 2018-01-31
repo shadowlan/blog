@@ -56,6 +56,11 @@ cd $GOPATH/bin
 * 更多命令参考[官方文档](https://golang.org/cmd/go/)
 
 ## 配置Sublime Text 3开发Go
+
+### 安装GoSublime
+请参考[这里](http://www.cnblogs.com/simplelovecs/p/5311899.html)
+
+### 安装sublime-build
 安装sublime-build以编译Go项目，下面介绍安装步骤和简单使用，细节可以参考官方[sublime-build github](https://github.com/golang/sublime-build)
 * 安装步骤
   * 打开Sublime Text 3,快捷键方式Shift+Command+P打开Package Control面板
@@ -64,6 +69,7 @@ cd $GOPATH/bin
 
 * 简单使用
   * 快捷键Shift+Command+B调出选择面板，选择需要执行的命令例如"Go - Run"/"Go - Install"等
+
 
 ## vim配置Go开发环境插件
 Vim-go是当前使用最为广泛的用于搭建Golang开发环境的vim插件，推荐在vim7.4及以上版本安装。  
