@@ -11,7 +11,7 @@ shell特殊变量$IFS（internal field separator），默认分割符为空格<s
 
 打印IFS: cat -etv <<< "$IFS"
 ```bash
-str="this is a string"
+string="this is a string"
 array=($string)
 ```
 指定分割符
@@ -29,6 +29,14 @@ done
 ```bash
 content=`cat $file`
 content=$(<$file)
+```
+
+* 判断string是否为空
+```bash
+#1. not null/empty
+[ -n "${var}" ]
+#2. null/empty
+[ -z "${var}"]
 ```
 
 * 字符串操作
