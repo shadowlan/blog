@@ -17,8 +17,8 @@
 
 ### 安装客户端
 
-任意能够链接K8S cluster环境的节点都可以配置为Helm客户端，但需要保证相应节点已经配置的正确的k8s config，通过执行
-`helm init -c`跳过 Tiller 部分，仅进行客户端的安装。
+任意能够链接K8S cluster环境的节点都可以配置为Helm客户端，但需要保证相应节点已经配置正确的k8s config，通过执行
+`helm init -c`跳过Tiller部分，仅进行客户端的安装。
 
 * ~/.helm 中保存了对 Repository 的定义，各个 Repository 的索引的缓存，以及 Chart 压缩包的缓存。
 * 如果当前用户home目录下没有.kube/config文件,执行`helm init -c`时，helm将默认和本地8080端口的k8s api通信，那么可能会出现如下错误：
@@ -59,8 +59,14 @@ export  KUBECONFIG=deafult.kubeconfig
 helm search mysql #搜索
 helm inspect stable/mysql #查看
 ```
+* 查看实际加载的模版信息： `helm get manifest $release_name`
 * 安装: `helm install stable/mysql`  
-    当执行`helm install`时可以利用 --set 或者 --value 参数，来指定在helm inspect命令中看到的变量的值，完成对变量的设置
+    当执行`helm install`时可以利用 --set 或者 --value 参数，来指定在helm inspect命令中看到的变量的值，完成对变量的设置。注意： --set设置的值会覆盖--value设置的值， --value设置的值会覆盖 values.yaml中定义的值
+* 调试chart:
+```
+helm install --debug --dry-run ./first_chart
+#客户端会将first_chart发送给Tiller服务器，Tiller返回渲染后的模版，但是不实际部署该chart。
+```
 * 运行简单Helm仓库
 ```
 helm serve --repo-path repo
@@ -73,12 +79,14 @@ helm repo add bitnami-incubator https://charts.bitnami.com/incubator
 ## 参考链接
 * [Helm简介][cn-guide]
 * [Helm快速入门][quick-start-cn]
-* [Getting Started Authoring Helm Charts][athoring-charts]
+* [Helm Template Guide][helm-template-guide]
+* [Getting Started Authoring Helm Charts][authoring-charts]
 
 [helm-v2.8.0]: https://kubernetes-helm.storage.googleapis.com/helm-v2.8.0-linux-amd64.tar.gz
 [install-helm]: https://docs.helm.sh/using_helm/#installing-helm
 [quick-start]: https://github.com/kubernetes/helm/blob/master/docs/quickstart.md#Install-Helm
 [cn-guide]: http://blog.fleeto.us/content/helm-jian-jie
-[athoring-charts]: https://deis.com/blog/2016/getting-started-authoring-helm-charts/
+[authoring-charts]: https://deis.com/blog/2016/getting-started-authoring-helm-charts/
 [issue-521]: https://github.com/kubernetes/kubeadm/issues/521
 [quick-start-cn]: https://ezmo.me/2017/09/24/helm-quick-toturial/
+[helm-template-guide]: https://docs.helm.sh/chart_template_guide/

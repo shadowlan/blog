@@ -108,6 +108,7 @@ echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
 * If you see an issue like "there is no JWS signed token in the cluster-info ConfigMap", the root cause is the token is expired. you can regenerate the token from master server:
 ```
 kubeadm token create
+kubeadm token create --print-join-command # will get complete kubeadm join command
 ```
 
 check the new node on master node with `kubectl get nodes`
@@ -123,6 +124,15 @@ You can refer to [official guide](https://github.com/kubernetes/dashboard#kubern
   run `kubectl proxy`, then open  "http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/" on master server.
 * Access the dashboard outside of master node
   Please refer to [Accessing-Dashboard](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above)
+
+## Troubleshooting
+
+> "misconfiguration: kubelet cgroup driver: "cgroupfs" is different from docker cgroup driver: "systemd"
+> Fix: check the cgroup driver configuration item for kubelet and docker on the conf file to update them to "cgroupfs" to match.
+```
+/etc/systemd/system/multi-user.target.wants/docker.service  
+/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+```
 
 # Tips
 
