@@ -19,7 +19,9 @@
 * insert a new line before: SHIFT+CMD+ENTER
 * go to method: SHIFT+CMD+O
 * retract: cmd+]
+
 ## VSCODE setting
+
 * trim whitespace: Preferences > User Settings add '"files.trimTrailingWhitespace": true'
 
 # Sublime shortcut
