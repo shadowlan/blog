@@ -18,7 +18,7 @@
 * insert a new line after: CMD+ENTER
 * insert a new line before: SHIFT+CMD+ENTER
 * go to method: SHIFT+CMD+O
-* 
+* retract: cmd+]
 ## VSCODE setting
 * trim whitespace: Preferences > User Settings add '"files.trimTrailingWhitespace": true'
 
@@ -35,6 +35,7 @@
 * redo or repeat: CMD+Y
 * autocomplete (repeat to select next suggestion): CTRL+space
 * jump to matching brackets: CTRL+m
+* select all instances: CTRL+CMD+G
 
 
 # firefox
@@ -43,4 +44,5 @@
 
 # Mac
 
+* ctrl+cmd+f : full screen
 * button navigation: http://www.idownloadblog.com/2015/03/15/tab-key-between-buttons-mac-os-x/

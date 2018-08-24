@@ -1,0 +1,11 @@
+{
+    "http.proxy":"http://127.0.0.1:8888",
+    "http.proxyStrictSSL": false,
+    "go.gopath": "/Users/myuser/go:/WorkSpace/msgHub",
+    "window.zoomLevel": 0,
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false,
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "editor.renderWhitespace": "all",
+    "explorer.confirmDragAndDrop": false,
+}
