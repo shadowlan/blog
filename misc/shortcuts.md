@@ -1,5 +1,4 @@
-# VSCODE shortcut
-
+# VSCODE Shortcut  
 * delete left: Option+Delete
 * delete right: CTRL+K#
 * delete current line: SHIFT-CMD+K
@@ -19,13 +18,15 @@
 * insert a new line before: SHIFT+CMD+ENTER
 * go to method: SHIFT+CMD+O
 * retract: cmd+]
+* Ctrl+- .. navigate back
+* Ctrl+Shift+- .. navigate forward
+* Fold folds the innermost uncollapsed region at the cursor: ⌥+⌘+[
+* Unfold unfolds the collapsed region at the cursor: ⌥+⌘+] 
 
-## VSCODE setting
-
+## VSCODE Setting  
 * trim whitespace: Preferences > User Settings add '"files.trimTrailingWhitespace": true'
 
-# Sublime shortcut
-
+# Sublime Shortcut  
 * delete left: Option+Delete
 * Select all occurrences: CTRL+CMD+G
 * select line: SHIFT+OPTION+ up/down arrow
@@ -40,11 +41,9 @@
 * select all instances: CTRL+CMD+G
 
 
-# firefox
-
+# Firefox  
 * duplicate tab:  CTRL+L/CMD+enter
 
-# Mac
-
+# Mac  
 * ctrl+cmd+f : full screen
 * button navigation: http://www.idownloadblog.com/2015/03/15/tab-key-between-buttons-mac-os-x/
