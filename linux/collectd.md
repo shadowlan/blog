@@ -46,19 +46,10 @@ collectdctl为collectd提供了一个控制接口，能够和"unixsock plugin"�
 
 ## 常用插件
 
-* collectd-unixsock plugin https://collectd.org/documentation/manpages/collectd-unixsock.5.shtml
-* syslog https://collectd.org/wiki/index.php/Plugin:LogFile
-  配置文件： /etc/rsyslog.conf
-
-socket nc debug:
-http://blog.51cto.com/qujunorz/1942670
-
-collectd corefile 
-https://collectd.org/wiki/index.php/Core_file
-
-lsof
-http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html
-
+* [collectd-unixsock plugin](https://collectd.org/documentation/manpages/collectd-unixsock.5.shtml)  
+* [syslog](https://collectd.org/wiki/index.php/Plugin:LogFile)  
+    配置文件： /etc/rsyslog.conf
+* [collectd corefile](https://collectd.org/wiki/index.php/Core_file)  
 
 [collectd-conf-man]: https://collectd.org/documentation/manpages/collectd.conf.5.shtml
 [collectdctl-man-page]: http://manpages.ubuntu.com/manpages/xenial/man1/collectdctl.1.html

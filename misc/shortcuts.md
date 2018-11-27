@@ -26,6 +26,18 @@
 ## VSCODE Setting  
 * trim whitespace: Preferences > User Settings add '"files.trimTrailingWhitespace": true'
 
+{
+    "http.proxy":"http://127.0.0.1:8888",
+    "http.proxyStrictSSL": false,
+    "go.gopath": "/Users/luolan/go:/WorkSpace/msgHub",
+    "window.zoomLevel": 0,
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false,
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "editor.renderWhitespace": "all",
+    "explorer.confirmDragAndDrop": false,
+}
+
 # Sublime Shortcut  
 * delete left: Option+Delete
 * Select all occurrences: CTRL+CMD+G
