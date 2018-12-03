@@ -19,6 +19,10 @@
 * insert a new line before: SHIFT+CMD+ENTER
 * go to method: SHIFT+CMD+O
 * retract: cmd+]
+* Ctrl+- .. navigate back
+* Ctrl+Shift+- .. navigate forward
+* Fold folds the innermost uncollapsed region at the cursor: ⌥+⌘+[
+* Unfold unfolds the collapsed region at the cursor: ⌥+⌘+] 
 
 ## VSCODE setting
 
