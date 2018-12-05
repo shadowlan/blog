@@ -22,6 +22,7 @@
 * Ctrl+Shift+- .. navigate forward
 * Fold folds the innermost uncollapsed region at the cursor: ⌥+⌘+[
 * Unfold unfolds the collapsed region at the cursor: ⌥+⌘+] 
+* select with regrex: find with regrex, then input option+enter
 
 ## VSCODE Setting  
 * trim whitespace: Preferences > User Settings add '"files.trimTrailingWhitespace": true'
@@ -59,3 +60,48 @@
 # Mac  
 * ctrl+cmd+f : full screen
 * button navigation: http://www.idownloadblog.com/2015/03/15/tab-key-between-buttons-mac-os-x/
+
+# iTerm2
+
+⌘+/高亮鼠标
+shift+cmd+e 显示命令当前时间
+⌘+Option+e全屏展示所有的 tab，可以搜索
+⌘+Shift+h弹出历史记录窗口。
+⌘+;弹出自动补齐窗口，列出曾经使用过的命令。
+
+Create a file named “multi-sessions.scpt” and copy below content to it.
+```
+-- Launch iTerm and log into multiple servers using SSH
+tell application "iTerm"
+	activate
+	create window with default profile
+	-- Read serverlist from file path below
+	set Servers to paragraphs of (do shell script "/bin/cat $HOME/serverlist")
+	repeat with nextLine in Servers
+		-- If line in file is not empty (blank line) do the rest
+		if length of nextLine is greater than 0 then
+			-- set server to "nextLine"
+			-- set term to (current terminal)
+			-- set term to (make new terminal)
+			-- Open a new tab
+			-- tell term
+			tell current window
+				create tab with default profile
+				tell current session
+					write text "ssh dlluolan@" & nextLine
+					-- sleep to prevent errors if we spawn too fast
+					do shell script "/bin/sleep 0.01"
+				end tell
+			end tell
+		end if
+	end repeat
+	-- Close the first tab since we do not need it
+	-- terminate the first session of the current terminal
+	tell first tab of current window
+		close
+	end tell
+end tell
+```
+Create a file under $HOME/serverlist and insert the ip or hostname list.  
+`cp multi-sessions.scpt ~/Library/Application\ Support/iTerm2/Scripts/`  
+Go to iterm2 and choose tool `Scripts` and choose the script you will run
