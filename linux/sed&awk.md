@@ -32,7 +32,7 @@ b. ～波浪号制定每次要跳过的行数,例如2~2 匹配 2,4,6,8,......：
 
 * 模式匹配
 
-  可以用数字来指定地址范围，也可以使用模式来匹配指定的范围，例如： 打印自匹配 Raj 的行开始到匹配 Jane 的行之间的所有内容 `sed -n '/Raj/,/Jane/ p' employee.txt`
+  可以用数字来指定地址范围，也可以使用模式来匹配指定的范围，例如：打印自匹配Raj的行开始到匹配Jane的行之间的所有内容 `sed -n '/Raj/,/Jane/ p' employee.txt`
 
   地址范围可以和模式匹配结合起来使用，例如：打印从第一次匹配 Raj 的行到最后的所有行
 `sed -n '/Raj/,$ p' employee.txt`
@@ -173,7 +173,8 @@ log:output created
 * 把 employee.txt 中每行最后两个字符替换为”,Not Defined”:`sed -n 's/..$/,Not Defined/ p' employee.txt`
 * 清除 test.html 文件中的所有 HTML 标签: `sed 's/<[^>]*>//g' test.html`
 * 删除所有注释行和空行:`sed -e 's/#.*// ; /^$/ d' /etc/profile`
-* 使用 sed 把 DOS 格式的文件转换为 Unix 格式: `sed ‘s/.$//’ filename`
+* 使用sed把DOS格式的文件转换为Unix格式: `sed ‘s/.$//’ filename`
+* 将换行符替换为字符"\n":`sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g' filename`
 
 ## 执行sed  
 ### 单行内执行多个sed命令  
@@ -210,7 +211,7 @@ sed注释以#开头
 
 ## sed附加命令  
 
-* 命令 `a`可以在指定位置的后面插入新行，语法：`sed ‘[address] a the-line-to-append’ input-file`  
+* 追加命令`a`:可以在指定位置的后面插入新行，语法：`sed ‘[address] a the-line-to-append’ input-file`  
   * 在第 2 行后面追加一行：`sed '2 a 203,Jack Johnson,Engineer' employee.txt`
   * 在匹配 Jason 的行的后面追加两行: 
     ```
@@ -218,4 +219,47 @@ sed注释以#开头
     203,Jack Johnson,Engineer\
     204,Mark Smith,Sales Engineer' employee.txt
    ```
-   追加多行之间也可以用\n来换行而不是折行
+   追加多行之间也可以用\n来换行而不是折行  
+* 插入命令`i`: 在指定位置之前插入行，语法：`sed '[address] i the-line-to-insert' inputfile`  
+* 修改命令`c`: 用新行取代旧行，语法： `sed '[address] c the-line-to-insert' inputfile`  
+* 命令`a`,`i`,`c`可以组合使用  
+* 打印不可见字符`l`,例如: `sed -n 'l' tabfile.txt`,如果`l`后面指定了数字，那么会在第n个字符处使用一个不可见自动折行(仅GNU sed可用)  
+* 打印行号命令`=`，例如:`sed '=' employee.txt`,打印文件的总行数:`sed -n '$ =' employee.txt`  
+* 转换字符命令`y`,根据对应位置转换字符，例如:`sed 'y/abcde/ABCDE/' employee.txt`  
+* 操作多个文件，sed可以同时处理多个文件，例如: `sed -n '/root/ p' /etc/passwd /etc/group`  
+* 退出sed命令`q`,终止正在执行的命令并退出sed,例如：打印第5行后退出，即只打印前5行 ` sed '5 q' employee.txt`  
+* 从文件读取数据`r`, 命令`r`会从另外一个文件读取内容，并在指定的位置打印出来。
+  * 读取log.txt并追加到employee.txt的最后：`sed '$ r log.txt' employee.txt`  
+  * 读取log.txt的内容，并且在匹配’Raj’的行后面 打印出来：`sed ‘/Raj/ r log.txt’ employee.txt`
+* sed命令选项  
+  * -n/--quiet/--slient等价，屏蔽 sed 的默认输出
+  * -f/--file,调用sed脚本文件
+  * -e/–expression,执行多个命令
+  * -i/--in-place,直接修改输入文件  
+* 打印模式空间`n`
+  命令 n 打印当前模式空间的内容，然后从输入文件中读取下一行。如果在命令执行过程中遇到 n，那么它会改变正常的执行流程。需要和保持空间的命令配合使用
+
+## Sed保持空间和模式空间  
+* 模式空间:如你所知，模式空间用于 sed 执行的正常流程中。该空间 sed内置的一个缓冲区，用来存放、修改从输入文件读取的内容。
+* 保持空间:保持空间是另外一个缓冲区，用来存放临时数据。Sed可以在保持空间和模式空间交换数据，但是不能在保持空间上执行普通的 sed 命令。我们已经讨论 过，每次循环读取数据过程中，模式空间的内容都会被清空，然而保持空间的内容 则保持不变，不会在循环中被删除  
+示例中用到的文件empnametitle.txt内容
+```
+John Doe
+CEO
+Jason Smith
+IT Manager
+Raj Reddy
+Sysadmin
+Anand Ram
+Developer
+Jane Miller
+Sales Manager
+```
+### 用保持空间替换模式空间(命令x)
+打印管理者的名称:`sed -n 'x;n;/Manager/{x;p}' empnametitle.txt`或者`sed –n -e '{x;n}’ –e ‘/Manager/{x;p}' empnametitle.txt`
+* `{x;n}` – x 交换模式空间和保持空间的内容;n 读取下一行到模式空间。在示例文件中，保持空间保存的是雇员名称，模式空间保存的是职位。
+* `/Manager/{x;p}` 根据模式匹配里`/Manager/`来匹配要处理的模式空间内容，如果包含Manager，就交换模式空间和保持空间的内容。然后打印模式空间的内容。
+
+### 把模式空间的内容复制到保持空间(命令h)  
+命令h不会修改当前模式空间的内容。执行命令h时，当前保持空间的内容会被模式空间的内容覆盖。
+打印管理者的名称:`sed -n -e '/Manager/!h' -e '/Manager/{x;p}' empnametitle.txt`  
