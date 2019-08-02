@@ -3,8 +3,9 @@
 ## Reference
 *Offical Doc*
 * [BDD][bdd-definition]
-* [Cucmber][Cucumber]
-* [Aruba][Aruba]
+* [Cucumber][Cucumber] Cucumber is a tool that supports Behaviour-Driven Development(BDD). Cucumber reads executable specifications written in plain text and validates that the software does what those specifications say. The specifications consists of multiple examples, or scenarios. 
+* [Aruba][Aruba] Aruba is an extension for popular TDD and BDD frameworks like "Cucumber", "RSpec" and "Minitest" to make testing of commandline applications meaningful, easy and fun.
+* [Gherkin][Gherkin] Gherkin uses a set of special keywords to give structure and meaning to executable specifications. Each keyword is translated to many spoken languages; 
 
 ## Installation
 
@@ -202,7 +203,7 @@ Feature: Run command
 * [Cucumber books][cucumber-books]
 
 [Aruba]: https://app.cucumber.pro/projects/aruba/documents/branch/master
-[Cucumber]: https://docs.cucumber.io/cucumber/tag-expressions/
+[Cucumber]: https://docs.cucumber.io/cucumber/
 [bdd-definition]: https://www.agilealliance.org/glossary/bdd
 [bdd-cn]: https://medium.com/@yurenju/%E8%87%AA%E5%8B%95%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6-tdd-%E8%88%87-bdd-464519672ac5
 [5-step-guide]: https://www.agiletrailblazers.com/blog/the-5-step-guide-for-selenium-cucumber-and-gherkin
@@ -211,3 +212,4 @@ Feature: Run command
 [cucumber-books]: http://toolsqa.com/cucumber/cucumber-hooks/
 [MoreHooks]: https://docs.cucumber.io/cucumber/api/#tagged-hooks
 [MoreAboutProfile]: https://docs.cucumber.io/cucumber/configuration/#default-profile
+[Gherkin]:https://docs.cucumber.io/gherkin/reference/

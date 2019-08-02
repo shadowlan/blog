@@ -46,3 +46,9 @@ do
    echo "$key : ${dic[$key]}"
 done
 ```
+
+* range number
+```
+for i in {1..10}; do echo $i;done
+for i in $(seq 2 $END); do echo $i; done
+```

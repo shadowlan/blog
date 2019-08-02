@@ -207,7 +207,7 @@ sed注释以#开头
 也可以制定-n选项来屏蔽默认输出 `#!/bin/sed -nf`,注意必须是`-nf`而不是`-fn`.
 
 ### 直接修改输入文件  
-使用选项`-i` 可以直接修改sed的输入文件，另一保护性措施是加上备份扩展，例如：在原始文件 employee.txt 中，把 John 替换为 Johnny，但在替换前备份employee.txt: `sed -ibak 's/John/Johnny/' employee.txt`,这与`sed –in-place=bak ‘s/John/Johnny/’ employee.txt`
+使用选项`-i` 可以直接修改sed的输入文件，另一保护性措施是加上备份扩展，例如：在原始文件 employee.txt 中，把 John 替换为 Johnny，但在替换前备份employee.txt: `sed -i'.bak' 's/John/Johnny/' employee.txt`,这与`sed –in-place=.bak ‘s/John/Johnny/’ employee.txt`
 
 ## sed附加命令  
 
@@ -263,3 +263,20 @@ Sales Manager
 ### 把模式空间的内容复制到保持空间(命令h)  
 命令h不会修改当前模式空间的内容。执行命令h时，当前保持空间的内容会被模式空间的内容覆盖。
 打印管理者的名称:`sed -n -e '/Manager/!h' -e '/Manager/{x;p}' empnametitle.txt`  
+
+# awk  
+
+
+## 其他
+
+* 使用shell变量  
+```
+declare -a params=("CLUSTER_NAME" "NUM_BROKERS" "BROKER_PATTERN" "API_KEY" "PREFIX_FILTER")
+for p in "${params[@]}"
+do
+sed -i "s/%$p%/${!p}/g" jobs/topic-restore-job.yaml
+done
+```
+
+* 每行插入空行 `sed G file.txt`, 插入多个空行可以用`sed 'G;G' file.txt`  
+* dos2unix转换 `sed -i 's/\r//' file.txt`

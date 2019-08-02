@@ -36,7 +36,7 @@ content=$(<$file)
 #1. not null/empty
 [ -n "${var}" ]
 #2. null/empty
-[ -z "${var}"]
+[ -z "${var}" ]
 ```
 
 * 字符串操作
