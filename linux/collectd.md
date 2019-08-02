@@ -13,7 +13,14 @@ collectd从各种来源收集指标，例如 操作系统，应用程序，日�
 * 设置开机启动systemctl enable collectd
 
 ## 控制工具collectedctl  
-collectdctl为collectd提供了一个控制接口，能够和"unixsock plugin"插件通信交互。更多信息可以参考[官方文档][collectdctl-man-page]，下面仅介绍常用功能。  
+collectdctl为collectd提供了一个控制接口，能够和"unixsock plugin"插件通信交互。更多信息可以参考[官方文档][collectdctl-man-page]，下面仅介绍常用功能。
+安装：
+```
+add-apt-repository universe
+apt-get update
+apt-get install collectd-utils
+```
+or `wget http://launchpadlibrarian.net/251829575/collectd-utils_5.5.1-1build2_amd64.deb`
 其支持的选项有：  
   * -s socket，由插件"unixsock plugin"打开的UNIX socket路径，默认为 /var/run/collectd-unixsock
   * -h  打印使用帮助并退出  

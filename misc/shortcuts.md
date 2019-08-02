@@ -24,7 +24,7 @@
 * Unfold unfolds the collapsed region at the cursor: ⌥+⌘+] 
 * select with regrex: find with regrex, then input option+enter
 
-## VSCODE Setting  
+## VSCODE Setting
 * trim whitespace: Preferences > User Settings add '"files.trimTrailingWhitespace": true'
 
 {

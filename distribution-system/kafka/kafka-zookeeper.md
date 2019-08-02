@@ -25,3 +25,9 @@
 
 # 其他参考
   [手动安装zookeeper](http://vinc.top/2016/09/20/zookeeper%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9C%A8kafka%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/)
+
+# CLI
+> zkCli.sh
+> rmr /brokers/topics/__ibm_dnwe2
+> sync
+> exit
