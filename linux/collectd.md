@@ -12,7 +12,7 @@ collectd从各种来源收集指标，例如 操作系统，应用程序，日�
 * `systemctl start collectd`
 * 设置开机启动systemctl enable collectd
 
-## 控制工具collectdctl  
+## 控制工具collectedctl  
 collectdctl为collectd提供了一个控制接口，能够和"unixsock plugin"插件通信交互。更多信息可以参考[官方文档][collectdctl-man-page]，下面仅介绍常用功能。
 安装：
 ```
@@ -54,10 +54,9 @@ or `wget http://launchpadlibrarian.net/251829575/collectd-utils_5.5.1-1build2_am
 ## 常用插件
 
 * [collectd-unixsock plugin](https://collectd.org/documentation/manpages/collectd-unixsock.5.shtml)  
-* [syslog](https://collectd.org/wiki/index.php/Plugin:LogFile) 配置文件： /etc/rsyslog.conf
+* [syslog](https://collectd.org/wiki/index.php/Plugin:LogFile)  
+    配置文件： /etc/rsyslog.conf
 * [collectd corefile](https://collectd.org/wiki/index.php/Core_file)  
-* [statsd](https://collectd.org/wiki/index.php/Plugin:StatsD) 随collectd启动一个 statsd deamon,好处是不用额外维护一个statsd进程
-* [write_graphite](https://collectd.org/wiki/index.php/Plugin:Write_Graphite),将collectd收集的指标写入graphite
 
 [collectd-conf-man]: https://collectd.org/documentation/manpages/collectd.conf.5.shtml
 [collectdctl-man-page]: http://manpages.ubuntu.com/manpages/xenial/man1/collectdctl.1.html
