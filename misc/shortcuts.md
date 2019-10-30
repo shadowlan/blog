@@ -68,6 +68,7 @@ shift+cmd+e 显示命令当前时间
 ⌘+Option+e全屏展示所有的 tab，可以搜索
 ⌘+Shift+h弹出历史记录窗口。
 ⌘+;弹出自动补齐窗口，列出曾经使用过的命令。
+cmd+shift+option拖拽窗口body，将窗口重新加入到tab list里。注意，目标窗口必须是多tab页，如果是一个，那么拖拽过去只能水平或者垂直铺放。
 
 Create a file named “multi-sessions.scpt” and copy below content to it.
 ```
